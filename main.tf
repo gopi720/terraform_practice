@@ -9,6 +9,13 @@ provider "aws" {
     region = "ap-south-1"
     profile = "default"     
 }
+terraform {
+  backend "s3" {
+    bucket = "anitha-tsubbucket"
+    key    = "terraform.tfstate"
+    region = "ap-south-1"
+  }
+}
 data "aws_ami" "tsubami" {
   most_recent = true
   filter {
